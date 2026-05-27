@@ -1,0 +1,474 @@
+/* --- RESET & VARIABLES --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+:root {
+    --bg-pure: #000000;
+    --bg-dark: #0a0a0c;
+    --bg-card: #121215;
+    --text-primary: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-blue: #2563eb;
+    --accent-blue-hover: #3b82f6;
+    --border-color: #1f2937;
+    --border-glow: #2563eb40;
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --max-width: 1100px;
+    --radius: 8px;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* --- GLOBAL STYLES --- */
+body {
+    background-color: var(--bg-pure);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+}
+
+img, video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.85rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+strong {
+    color: #ffffff;
+}
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-blue-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--border-glow);
+}
+
+/* --- HEADER & NAV --- */
+header {
+    background-color: rgba(10, 10, 12, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+}
+
+.logo:hover {
+    color: var(--accent-blue);
+}
+
+.logo span {
+    color: var(--accent-blue);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+/* --- HERO --- */
+.hero {
+    background: radial-gradient(circle at 80% 20%, #2563eb15 0%, transparent 50%), var(--bg-dark);
+    padding: 6.5rem 0 5.5rem 0;
+    text-align: left;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.25rem;
+}
+
+/* --- PROBLEM --- */
+.problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.problem-list li {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+}
+
+/* --- SOLUTIONS --- */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.solution-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2.25rem;
+    border-radius: var(--radius);
+}
+
+.solution-card h3 {
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 0.75rem;
+}
+
+/* --- PORTFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    /* grid-template-columns: repeat(auto-fit, minmax(300, 1fr)); */
+    /* max-width: 900px; */
+    
+    justify-content: center; 
+    gap: 2rem;
+    margin-top: 2.5rem auto;
+}
+
+.portfolio-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.portfolio-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 20px var(--border-glow);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #111827 0%, #030712 100%);
+}
+
+.play-icon {
+    width: 54px;
+    height: 54px;
+    background-color: rgba(37, 99, 235, 0.2);
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.play-icon::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent #ffffff;
+    margin-left: 4px;
+}
+
+.portfolio-card:hover .play-icon {
+    background-color: var(--accent-blue);
+    transform: scale(1.08);
+}
+
+.portfolio-info {
+    padding: 1.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.portfolio-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+.portfolio-link:hover {
+    color: var(--accent-blue-hover);
+}
+
+/* --- PROCESS --- */
+.process-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.process-step {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+}
+
+.process-step:hover::before {
+    background-color: var(--accent-blue);
+}
+
+.process-step strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.process-step p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* --- CTA FOOTER --- */
+footer {
+    background: radial-gradient(circle at 50% 100%, #2563eb10 0%, transparent 60%), var(--bg-dark);
+    padding: 6rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-content h2 {
+    font-size: 2.2rem;
+}
+
+.footer-content p {
+    margin-bottom: 2rem;
+}
+
+.footer-cta-container {
+    margin-top: 2rem;
+}
+
+/* Kontainer utama ikon sosial di footer */
+.footer-socials {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;        /* Jarak antar ikon */
+    margin-top: 5.5rem !important;  /* Jarak dari tombol WhatsApp ke ikon */
+    margin-bottom: 2rem !important;
+}
+
+/* Mengatur tampilan dasar link ikon */
+.footer-socials a {
+    display: inline-block !important;
+    color: #a0aec0 !important;     /* Warna abu-abu serasi teks */
+    font-size: 1.8rem !important;   /* Ukuran besar ikon */
+    transition: all 0.3s ease !important;
+}
+
+/* Efek ketika kursor mouse berada di atas ikon (Hover) */
+.footer-socials a:hover {
+    color: #2563eb !important;     /* Berubah warna menjadi biru */
+    transform: translateY(-3px) !important; /* Efek terangkat */
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 968px) {
+    .process-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    section { padding: 4rem 0; }
+    
+    .solutions-grid, 
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    nav ul { gap: 1.25rem; }
+}
+
+@media (max-width: 576px) {
+    .nav-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 5.5rem;
+    }
+    
+    nav ul { gap: 1.5rem; }
+    
+    .process-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero { padding: 4.5rem 0 4rem 0; }
+    footer { padding: 4rem 0; }
+}
+
+/* --- PENGATURAN KHUSUS LAYAR HP (Max-width: 576px) --- */
+@media (max-width: 576px) {
+    .footer-socials {
+        gap: 1.5rem !important;        /* Jarak antar ikon dikecilkan agar muat di layar HP */
+        margin-top: 3rem !important;   /* Jarak dari tombol WhatsApp dikurangi supaya tidak terlalu renggang */
+        margin-bottom: 1rem !important;
+    }
+
+    .footer-socials a {
+        font-size: 1.5rem !important;  /* Ukuran ikon sedikit diperkecil agar proporsional */
+    }
+}
