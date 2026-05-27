@@ -460,27 +460,15 @@ footer {
     footer { padding: 4rem 0; }
 }
 
-/* --- PENGATURAN KHUSUS LAYAR HP (Max-width: 576px) --- */
-@media (max-width: 576px) {
-    .footer-socials {
-        gap: 1.5rem !important;        /* Jarak antar ikon dikecilkan agar muat di layar HP */
-        margin-top: 3rem !important;   /* Jarak dari tombol WhatsApp dikurangi supaya tidak terlalu renggang */
-        margin-bottom: 1rem !important;
-    }
-
-    .footer-socials a {
-        font-size: 1.5rem !important;  /* Ukuran ikon sedikit diperkecil agar proporsional */
-    }
-}
 
 /* --- ARTIKEL SECTION */
 
 /* --- ARTIKEL --- */
 .artikel-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dikunci 2 kolom seperti portofolio */
+    /* grid-template-columns: repeat(2, 1fr);  Dikunci 2 kolom seperti portofolio */
     /* Atau kalau mau auto-responsive pakai baris di bawah ini: */
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     justify-content: center; 
     gap: 2rem;
     margin-top: 2.5rem;
@@ -579,4 +567,91 @@ footer {
     border-color: var(--accent-blue-hover);
     box-shadow: 0 4px 20px var(--border-glow); /* Efek glow menyala */
     transform: translateY(-2px); /* Naik dikit */
+}
+
+@media (max-width: 1024px) {
+    
+    /* === 1. PENGATURAN ARTIKEL === */
+    .artikel-grid {
+        grid-template-columns: 1fr !important;
+        row-gap: 2rem !important; 
+        column-gap: 0 !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .artikel-card {
+        width: 100% !important;
+        box-sizing: border-box;
+        margin-bottom: 1rem; 
+    }
+
+    .artikel-info h3 {
+        font-size: 1.15rem !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* === 2. FIX HEADER UNTUK MOBILE === */
+    
+    /* Naikin tinggi dikit jadi 4rem biar ada ruang napas, kasih padding seimbang kiri-kanan */
+    .nav-container {
+        height: 4.5rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Bikin logo sedikit lebih imut biar gak makan space menu utama */
+    .logo {
+        font-size: 1.05rem !important;
+        margin-right: 0.25rem !important;
+        flex-shrink: 0; /* Logo dilarang gepeng */
+
+	transform: translateY(8px) !important; 
+    }
+
+    /* Bungkus nav agar dia mengambil sisa ruang yang ada dan mendorong konten ke tengah */
+    header nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end; /* Mendorong menu ke kanan secara rapi */
+        overflow: visible;
+    }
+
+    /* Atur ulang ul tempat menu berada */
+    nav ul {
+        display: flex !important;
+        justify-content: space-evenly !important; /* Bagi rata jarak antar menu */
+        gap: 0.35rem !important; /* Jarak aman antar menu */
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Amankan teks link menu navigasi */
+    nav a {
+        font-size: 0.72rem !important; /* Susutkan sedikit lagi biar huruf 'R' gak kepentok */
+        padding: 0.3rem 0.35rem !important; /* Kasih padding seimbang biar enak dilihat */
+        white-space: nowrap !important; /* Cegah teks patah baris */
+        display: inline-block;
+    }
+
+    .footer-socials {
+        gap: 1.5rem !important;        /* Jarak antar ikon dikecilkan agar muat di layar HP */
+        margin-top: 3rem !important;   /* Jarak dari tombol WhatsApp dikurangi supaya tidak terlalu renggang */
+        margin-bottom: 1rem !important;
+    }
+
+    .footer-socials a {
+        font-size: 1.5rem !important;  /* Ukuran ikon sedikit diperkecil agar proporsional */
+    }
+    img {
+    max-width: 100%; /* Biar gambar gak jebol keluar layar HP */
+    height: auto;
+  }
 }
