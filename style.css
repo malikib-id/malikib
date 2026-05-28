@@ -655,3 +655,98 @@ footer {
     height: auto;
   }
 }
+
+/* ==========================================================================
+   FAQ Section Component (Mengikuti Class Container Kamu)
+   ========================================================================== */
+#faq-section {
+    padding: 20px 0;
+    font-family: var(--font-sans);
+}
+
+.faq-title {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.faq-wrapper {
+    width: 100%;
+}
+
+/* Baris Item FAQ */
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+/* Menghilangkan panah default bawaan browser */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+.faq-item summary {
+    list-style: none;
+}
+
+/* Baris Pertanyaan */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   Ikon Segitiga (Tanpa Latar Belakang & Hover Mandiri)
+   ========================================================================== */
+.faq-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer; /* Kursor tangan hanya muncul saat di atas area segitiga */
+    transition: var(--transition);
+}
+
+/* Bentuk dasar segitiga/panah (warna default abu-abu) */
+.faq-icon::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg) translate(-1px, -1px);
+    transition: var(--transition);
+}
+
+/* HOVER EFFECT: Hanya aktif saat kursor tepat di atas segitiga */
+.faq-icon:hover::after {
+    border-color: var(--accent-blue-hover);
+}
+
+/* Efek Putar Panah saat <details> Terbuka/Open */
+.faq-item[open] .faq-icon::after {
+    transform: rotate(225deg) translate(1px, 1px);
+}
+
+/* ==========================================================================
+   Bagian Jawaban
+   ========================================================================== */
+.faq-answer {
+    padding-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.faq-answer p {
+    margin: 0;
+}
