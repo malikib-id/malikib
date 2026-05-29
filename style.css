@@ -750,3 +750,30 @@ footer {
 .faq-answer p {
     margin: 0;
 }
+
+.btn-traktir-kopi {
+      position: fixed !important; /* Paksa posisi melayang */
+      bottom: 20px;
+      right: 20px;
+      left: auto;
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent-blue) !important;
+      color: #a0aec0 !important;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: var(--border-glow);
+      z-index: 99999; /* Angka diperbesar agar pasti berada di paling atas */
+      transition: all 0.3s ease;
+    }
+
+.btn-traktir-kopi:hover {
+      background-color: var(--accent-blue-hover);
+      filter: brightness(1.2);
+      transform: scale(1.1) rotate(-10deg);
+      box-shadow: 0 4px 12px var(--border-glow);
+}
