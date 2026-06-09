@@ -136,26 +136,24 @@ header {
     z-index: 100;
 }
 
-.nav-container {
+.nav-container, .nav-container-subpages {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4.5rem;
+    min-height: 4.5rem;
 }
 
 .logo {
+    display: flex;
+    align-items: center; /* FIXED: Pembenahan typo align-item */
     font-size: 1.25rem;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.03em;
 }
 
-.logo:hover {
-    color: var(--accent-blue);
-}
-
-.logo span {
-    color: var(--accent-blue);
+.logo:hover, .logo span {
+    color: var(--accent-blue); /* KEDUA DUPLIKAT DISATUKAN DI SINI */
 }
 
 nav ul {
@@ -232,12 +230,9 @@ nav a:hover {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    /* grid-template-columns: repeat(auto-fit, minmax(300, 1fr)); */
-    /* max-width: 900px; */
-    
     justify-content: center; 
     gap: 2rem;
-    margin-top: 2.5rem auto;
+    margin-top: 2.5rem;
 }
 
 .portfolio-card {
@@ -393,81 +388,30 @@ footer {
     margin-bottom: 2rem;
 }
 
-.footer-cta-container {
-    margin-top: 2rem;
-}
-
-/* Kontainer utama ikon sosial di footer */
+/* CLEANED: Menghapus duplikat deklarasi berat footer-socials global */
 .footer-socials {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 1.5rem !important;        /* Jarak antar ikon */
-    margin-top: 5.5rem !important;  /* Jarak dari tombol WhatsApp ke ikon */
-    margin-bottom: 2rem !important;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;        
+    margin-top: 5.5rem;  
+    margin-bottom: 2rem;
 }
 
-/* Mengatur tampilan dasar link ikon */
 .footer-socials a {
-    display: inline-block !important;
-    color: #a0aec0 !important;     /* Warna abu-abu serasi teks */
-    font-size: 1.8rem !important;   /* Ukuran besar ikon */
-    transition: all 0.3s ease !important;
+    display: inline-block;
+    color: #a0aec0;     
+    font-size: 1.8rem;   
+    transition: all 0.3s ease;
 }
 
-/* Efek ketika kursor mouse berada di atas ikon (Hover) */
 .footer-socials a:hover {
-    color: #2563eb !important;     /* Berubah warna menjadi biru */
-    transform: translateY(-3px) !important; /* Efek terangkat */
+    color: #2563eb;     
+    transform: translateY(-3px); 
 }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
-@media (max-width: 968px) {
-    .process-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; }
-    section { padding: 4rem 0; }
-    
-    .solutions-grid, 
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    nav ul { gap: 1.25rem; }
-}
-
-@media (max-width: 576px) {
-    .nav-container {
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.5rem;
-        height: 5.5rem;
-    }
-    
-    nav ul { gap: 1.5rem; }
-    
-    .process-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero { padding: 4.5rem 0 4rem 0; }
-    footer { padding: 4rem 0; }
-}
-
-
-/* --- ARTIKEL SECTION */
-
-/* --- ARTIKEL --- */
+/* --- ARTIKEL SECTION --- */
 .artikel-grid {
     display: grid;
-    /* grid-template-columns: repeat(2, 1fr);  Dikunci 2 kolom seperti portofolio */
-    /* Atau kalau mau auto-responsive pakai baris di bawah ini: */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     justify-content: center; 
     gap: 2rem;
@@ -481,22 +425,20 @@ footer {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    text-decoration: none; /* Menghilangkan garis bawah link pada judul */
-    color: inherit; /* Warna teks mengikuti tema utama */
+    color: inherit; 
     transition: var(--transition);
 }
 
 .artikel-card:hover {
     border-color: var(--accent-blue);
     box-shadow: 0 4px 20px var(--border-glow);
-    transform: translateY(-4px); /* Opsional: efek naik dikit pas di-hover */
+    transform: translateY(-4px); 
 }
 
-/* Pengganti .video-container khusus untuk Gambar Artikel */
 .artikel-image-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Dikunci rasio 16:9 biar sama rata dengan portofolio */
+    padding-top: 56.25%; 
     background-color: #000000;
     border-bottom: 1px solid var(--border-color);
     overflow: hidden;
@@ -508,11 +450,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Gambar terpotong rapi tanpa gepeng */
+    object-fit: cover; 
     transition: var(--transition);
 }
 
-/* Efek zoom tipis pada gambar saat card di-hover */
 .artikel-card:hover .artikel-image {
     transform: scale(1.03);
 }
@@ -524,141 +465,75 @@ footer {
     flex-direction: column;
 }
 
-/* Styling Judul Artikel */
 .artikel-info h3 {
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.4;
     margin: 0;
-    color: #ffffff; /* Memastikan judul berwarna putih terang */
+    color: #ffffff; 
     transition: var(--transition);
 }
 
 .artikel-card:hover .artikel-info h3 {
-    color: var(--accent-blue); /* Judul berubah warna saat card di-hover */
+    color: var(--accent-blue); 
 }
 
-/* Pembungkus tombol agar posisinya tepat di tengah bawah grid */
 .artikel-action {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 }
 
-/* Desain tombol mandiri (Kondisi Awal: Biru Standar) */
 .btn-selengkapnya {
     display: inline-flex;
     align-items: center;
-    background-color: var(--accent-blue); /* Langsung warna biru asli */
-    color: var(--text-primary); /* Teks langsung putih terang */
+    background-color: var(--accent-blue); 
+    color: var(--text-primary); 
     border: 1px solid var(--accent-blue);
     padding: 0.8rem 2rem;
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 1rem;
     border-radius: var(--radius);
-    text-decoration: none;
     transition: var(--transition);
 }
 
-/* Efek Hover: Berubah jadi Biru Menyala + Efek Glow */
 .btn-selengkapnya:hover {
-    background-color: var(--accent-blue-hover); /* Berubah jadi biru menyala */
+    background-color: var(--accent-blue-hover); 
     border-color: var(--accent-blue-hover);
-    box-shadow: 0 4px 20px var(--border-glow); /* Efek glow menyala */
-    transform: translateY(-2px); /* Naik dikit */
+    box-shadow: 0 4px 20px var(--border-glow); 
+    transform: translateY(-2px); 
 }
 
-@media (max-width: 1024px) {
-    
-    /* === 1. PENGATURAN ARTIKEL === */
-    .artikel-grid {
-        grid-template-columns: 1fr !important;
-        row-gap: 2rem !important; 
-        column-gap: 0 !important;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .artikel-card {
-        width: 100% !important;
-        box-sizing: border-box;
-        margin-bottom: 1rem; 
-    }
-
-    .artikel-info h3 {
-        font-size: 1.15rem !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    /* === 2. FIX HEADER UNTUK MOBILE === */
-    
-    /* Naikin tinggi dikit jadi 4rem biar ada ruang napas, kasih padding seimbang kiri-kanan */
-    .nav-container {
-        height: 4.5rem !important;
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Bikin logo sedikit lebih imut biar gak makan space menu utama */
-    .logo {
-        font-size: 1.05rem !important;
-        margin-right: 0.25rem !important;
-        flex-shrink: 0; /* Logo dilarang gepeng */
-
-	transform: translateY(8px) !important; 
-    }
-
-    /* Bungkus nav agar dia mengambil sisa ruang yang ada dan mendorong konten ke tengah */
-    header nav {
-        flex-grow: 1;
-        display: flex;
-        justify-content: flex-end; /* Mendorong menu ke kanan secara rapi */
-        overflow: visible;
-    }
-
-    /* Atur ulang ul tempat menu berada */
-    nav ul {
-        display: flex !important;
-        justify-content: space-evenly !important; /* Bagi rata jarak antar menu */
-        gap: 0.35rem !important; /* Jarak aman antar menu */
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-    }
-
-    /* Amankan teks link menu navigasi */
-    nav a {
-        font-size: 0.72rem !important; /* Susutkan sedikit lagi biar huruf 'R' gak kepentok */
-        padding: 0.3rem 0.35rem !important; /* Kasih padding seimbang biar enak dilihat */
-        white-space: nowrap !important; /* Cegah teks patah baris */
-        display: inline-block;
-    }
-
-    .footer-socials {
-        gap: 1.5rem !important;        /* Jarak antar ikon dikecilkan agar muat di layar HP */
-        margin-top: 3rem !important;   /* Jarak dari tombol WhatsApp dikurangi supaya tidak terlalu renggang */
-        margin-bottom: 1rem !important;
-    }
-
-    .footer-socials a {
-        font-size: 1.5rem !important;  /* Ukuran ikon sedikit diperkecil agar proporsional */
-    }
-    img {
-    max-width: 100%; /* Biar gambar gak jebol keluar layar HP */
-    height: auto;
-  }
+/* --- ARTIKEL FOOTER & LOGO FIXED --- */
+.artikel-footer {
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    font-family: var(--font-sans);
 }
 
-/* ==========================================================================
-   FAQ Section Component (Mengikuti Class Container Kamu)
-   ========================================================================== */
+.artikel-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* FIXED: Mengubah flex menjadi inline-flex agar logo footer sejajar rapi di tengah */
+#logo-footer {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.25rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+#logo-footer:hover {
+    color: var(--accent-blue);
+}
+
+/* --- FAQ SECTION --- */
 #faq-section {
     padding: 20px 0;
     font-family: var(--font-sans);
@@ -675,13 +550,11 @@ footer {
     width: 100%;
 }
 
-/* Baris Item FAQ */
 .faq-item {
     border-bottom: 1px solid var(--border-color);
     transition: var(--transition);
 }
 
-/* Menghilangkan panah default bawaan browser */
 .faq-item summary::-webkit-details-marker {
     display: none;
 }
@@ -689,7 +562,6 @@ footer {
     list-style: none;
 }
 
-/* Baris Pertanyaan */
 .faq-question {
     display: flex;
     justify-content: space-between;
@@ -702,9 +574,6 @@ footer {
     transition: var(--transition);
 }
 
-/* ==========================================================================
-   Ikon Segitiga (Tanpa Latar Belakang & Hover Mandiri)
-   ========================================================================== */
 .faq-icon {
     width: 36px;
     height: 36px;
@@ -712,11 +581,10 @@ footer {
     align-items: center;
     justify-content: center;
     position: relative;
-    cursor: pointer; /* Kursor tangan hanya muncul saat di atas area segitiga */
+    cursor: pointer; 
     transition: var(--transition);
 }
 
-/* Bentuk dasar segitiga/panah (warna default abu-abu) */
 .faq-icon::after {
     content: "";
     width: 8px;
@@ -727,19 +595,14 @@ footer {
     transition: var(--transition);
 }
 
-/* HOVER EFFECT: Hanya aktif saat kursor tepat di atas segitiga */
 .faq-icon:hover::after {
     border-color: var(--accent-blue-hover);
 }
 
-/* Efek Putar Panah saat <details> Terbuka/Open */
 .faq-item[open] .faq-icon::after {
     transform: rotate(225deg) translate(1px, 1px);
 }
 
-/* ==========================================================================
-   Bagian Jawaban
-   ========================================================================== */
 .faq-answer {
     padding-bottom: 16px;
     font-size: 14px;
@@ -751,29 +614,30 @@ footer {
     margin: 0;
 }
 
+/* --- FLOATING COMPONENTS --- */
 .btn-traktir-kopi {
-      position: fixed !important; /* Paksa posisi melayang */
-      bottom: 20px;
-      right: 20px;
-      left: auto;
-      width: 50px;
-      height: 50px;
-      background-color: var(--accent-blue) !important;
-      color: #a0aec0 !important;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 20px;
-      box-shadow: var(--border-glow);
-      z-index: 99999; /* Angka diperbesar agar pasti berada di paling atas */
-      transition: all 0.3s ease;
-    }
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-blue);
+    color: #a0aec0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: var(--border-glow);
+    z-index: 99999; 
+    transition: all 0.3s ease;
+}
 
 .btn-traktir-kopi:hover {
-      background-color: var(--accent-blue-hover);
-      filter: brightness(1.2);
-      transform: scale(1.1) rotate(-10deg);
-      box-shadow: 0 4px 12px var(--border-glow);
+    background-color: var(--accent-blue-hover);
+    filter: brightness(1.2);
+    transform: scale(1.1) rotate(-10deg);
+    box-shadow: 0 4px 12px var(--border-glow);
 }
