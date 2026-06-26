@@ -86,6 +86,16 @@ strong {
     color: #ffffff;
 }
 
+/* === CSS UNTUK CATATAN KECIL REPO PRIVATE === */
+.repo-note {
+    display: block;
+    font-size: 0.75rem;      /* Ukuran font kecil agar tidak mengalihkan tombol */
+    color: #718096;          /* Warna abu-abu redup/muted text */
+    margin-top: 0.75rem;     /* Jarak renggang dari tombol di atasnya */
+    font-style: italic;      /* Format miring khas teks keterangan */
+}
+
+
 /* --- LAYOUT UTILITIES --- */
 .container {
     width: 100%;
@@ -124,6 +134,62 @@ section:last-of-type {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px var(--border-glow);
 }
+
+/* 1. Atur kotak pembungkusnya (Keduanya digabung dulu untuk fungsi dasar) */
+.btn-container, .btn-container-artikel { /* <--- WAJIB pakai titik di depan btn-container-artikel */
+    display: flex;
+    justify-content: center; 
+    width: 100%;            
+    margin-top: 2rem; 
+    
+    /* SOLUSI KUNCI: */
+    grid-column: 1 / -1; 
+}
+
+/* 2. Khusus untuk artikel, timpa jaraknya agar lebih menjauh */
+.btn-container-artikel {
+    margin-top: 3.5rem; /* Angka ini akan sukses menimpa 2rem di atas karena posisinya di bawah */
+}
+
+
+.btn-fix {
+    width: 260px;            
+    padding-left: 0;         
+    padding-right: 0;
+    transform: none; /* Memastikan tombol tidak bergeser karena efek hover bawaan */
+}
+
+
+.btn-traktir-kopi { /* tombol pop up untuk ke atas, namanya aja males di ganti */
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-blue);
+    color: #a0aec0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: var(--border-glow);
+    z-index: 99999; 
+    transition: all 0.3s ease;
+}
+
+.btn-traktir-kopi:hover {
+    background-color: var(--accent-blue-hover);
+    filter: brightness(1.2);
+    
+    /* KUNCI: Dipaksa rotasi tetap 0deg (lurus) dan digeser naik ke atas 6px */
+    transform: scale(1.1) rotate(0deg) translateY(-6px) !important;
+    
+    box-shadow: 0 10px 20px var(--border-glow);
+}
+
 
 /* --- HEADER & NAV --- */
 header {
@@ -250,13 +316,38 @@ nav a:hover {
     box-shadow: 0 4px 20px var(--border-glow);
 }
 
-.video-container {
+/* 1. Gabungkan semua properti yang SAMA */
+.video-container, 
+.video-container-profile {
     position: relative;
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background-color: #000000;
     border-bottom: 1px solid var(--border-color);
 }
+
+/* 2. Tulis properti KHUSUS untuk versi profil saja */
+.video-container-profile {
+    margin-top: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* --- 3. EFEK HOVER BERSINAR KHUSUS PROFIL (YANG SUDAH DIPERBAIKI) --- */
+.video-container-profile:hover {
+    border-color: var(--accent-blue);
+    
+    /* Menggabungkan bayangan hitam bawaan DAN glow biru agar tidak kaku */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.18), 
+        0 4px 25px var(--border-glow);
+    
+    transform: translateY(-4px); /* Sedikit dinaikkan agar efek bayangan ganda di bawahnya makin terlihat hidup */
+}
+
+
 
 .video-placeholder {
     position: absolute;
@@ -271,15 +362,20 @@ nav a:hover {
 }
 
 .play-icon {
-    width: 54px;
-    height: 54px;
-    background-color: rgba(37, 99, 235, 0.2);
+    width: 64px; /* Sedikit diperbesar agar lebih terlihat (opsional) */
+    height: 64px;
+    background-color: var(--accent-blue); /* Diubah jadi solid agar kontras dengan latar video */
     border: 2px solid var(--accent-blue);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    cursor: pointer;
+    
+    /* Efek animasi berdenyut di latar belakang */
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    animation: pulseGlow 2s infinite;
 }
 
 .play-icon::after {
@@ -288,15 +384,67 @@ nav a:hover {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 8px 0 8px 14px;
+    border-width: 9px 0 9px 16px; /* Disesuaikan ukurannya */
     border-color: transparent transparent transparent #ffffff;
-    margin-left: 4px;
+    margin-left: 5px; /* Menyeimbangkan posisi segitiga di tengah lingkaran */
+    transition: var(--transition);
 }
+
+/* --- EFEK INTERAKTIF SAAT KURSOR DI ATAS VIDEO/TOMBOL --- */
+
+/* Efek saat tombol play di-hover */
+.play-icon:hover {
+    transform: scale(1.1); /* Tombol sedikit membesar */
+    background-color: #ffffff; /* Warna latar berubah jadi putih */
+    border-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); /* Bayangan biru yang kuat */
+}
+
+
+/* --- EFEK SAAT KURSOR MASUK (HOVER) --- */
+
+/* 1. Ketika Card di-hover: Tombol membesar, warna solid, dan ANIMASI BERHENTI */
+.portfolio-card:hover .play-icon {
+    background-color: var(--accent-blue);
+    transform: scale(1.08);
+    animation-play-state: paused; /* Memperhentikan animasi berdenyut */
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); /* Efek bayangan diam yang solid */
+}
+
+/* 2. Ketika kursor tepat di atas Tombol Play: Efek invert premium & ANIMASI TETAP BERHENTI */
+.play-icon:hover {
+    background-color: #ffffff !important; /* Memaksa warna jadi putih dibanding hover card */
+    border-color: #ffffff;
+    transform: scale(1.15) !important; /* Sedikit lebih besar dari efek hover card */
+    animation-play-state: paused; /* Memastikan animasi tetap berhenti */
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* Mengubah warna segitiga menjadi biru hanya ketika tombolnya langsung di-hover */
+.play-icon:hover::after {
+    border-color: transparent transparent transparent var(--accent-blue);
+}
+
+
+/* --- ANIMASI BERDENYUT (PULSE) --- */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
 
 .portfolio-card:hover .play-icon {
     background-color: var(--accent-blue);
     transform: scale(1.08);
 }
+
 
 .portfolio-info {
     padding: 1.75rem;
@@ -478,32 +626,6 @@ footer {
     color: var(--accent-blue); 
 }
 
-.artikel-action {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
-
-.btn-selengkapnya {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--accent-blue); 
-    color: var(--text-primary); 
-    border: 1px solid var(--accent-blue);
-    padding: 0.8rem 2rem;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: var(--radius);
-    transition: var(--transition);
-}
-
-.btn-selengkapnya:hover {
-    background-color: var(--accent-blue-hover); 
-    border-color: var(--accent-blue-hover);
-    box-shadow: 0 4px 20px var(--border-glow); 
-    transform: translateY(-2px); 
-}
 
 /* --- ARTIKEL FOOTER & LOGO FIXED --- */
 .artikel-footer {
@@ -615,29 +737,27 @@ footer {
 }
 
 /* --- FLOATING COMPONENTS --- */
-.btn-traktir-kopi {
-    position: fixed; 
-    bottom: 20px;
-    right: 20px;
-    left: auto;
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-blue);
-    color: #a0aec0;
-    border-radius: 50%;
+/* === CSS UNTUK WADAH KATEGORI STACK === */
+.tech-stack-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 20px;
-    box-shadow: var(--border-glow);
-    z-index: 99999; 
-    transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.btn-traktir-kopi:hover {
-    background-color: var(--accent-blue-hover);
-    filter: brightness(1.2);
-    transform: scale(1.1) rotate(-10deg);
-    box-shadow: 0 4px 12px var(--border-glow);
+/* === CSS UNTUK KOTAK KATEGORI BER-BORDER === */
+.stack-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-blue); /* Menggunakan variabel warna birumu */
+    padding: 0.35rem 0.75rem;
+    
+    /* PENGATURAN BORDER DAN RADIUS */
+    border: 1px solid var(--border-color); /* Garis border tegas mengikuti tema web */
+    border-radius: var(--radius); /* Sudut melengkung tipis agar serasi dengan card */
+    background-color: transparent; /* Latar belakang polos tanpa warna block */
+    
+    display: inline-flex;
+    align-items: center;
 }

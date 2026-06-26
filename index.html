@@ -10,7 +10,7 @@
     <!-- Aturan buat HP (layar dari 0px sampai 768px) -->
     <link rel="stylesheet" href="style-hp.css" media="screen and (max-width: 768px)">
 </head>
-<body>
+<body id="top">
 
         <!-- HEADER / NAVIGATION -->
     <header>
@@ -20,7 +20,7 @@
                 <ul>
                     <li><a href="#problems">Ringkasan</a></li>
                     <li><a href="#services">Pelayanan</a></li>
-                    <li hidden><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
 		    <li><a href="#artikel">Artikel</a></li>
                     <li><a href="#process">Proses</a></li>
 		    <li><a href="en/">English</a></li>
@@ -36,6 +36,13 @@
 
 Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur utamanya mendadak error setelah deployment.</p>
             <a href="#contact" class="btn">Amankan Rilis Anda</a>
+
+	    <div class="video-container-profile">
+                <div class="video-placeholder">
+                    <div class="play-icon"></div>
+                </div>
+            </div>
+	    
         </div>
     </section>
 
@@ -72,7 +79,7 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
         </div>
     </section>
 
-    <section id="portfolio" hidden>
+    <section id="portfolio">
         <div class="container">
             <h2>Arsitektur Kode Terbuka & Portofolio</h2>
             <p>Saya percaya pada transparansi proses kerja. Anda dapat memeriksa langsung source code, arsitektur framework, hingga log eksekusi dari proyek terbaru saya di GitHub:</p>
@@ -103,6 +110,11 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
                         <a href="https://github.com/lana-24" class="portfolio-link" target="_blank" rel="noopener">Lihat Repositori UI →</a>
                     </div>
                 </div>
+
+		<div class="btn-container">
+		    <a href="portofolio" class="btn btn-fix">Lihat Semua di Portofolio →</a>
+		</div>
+		
             </div> 
         </div>
     </section>
@@ -132,11 +144,13 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
             </a>
         </div>
 
-	</div> <div class="artikel-action">
-            <a href="artikel/" class="btn-selengkapnya">Lihat Semua Artikel →</a>
+	<div class="btn-container-artikel">
+            <a href="artikel/" class="btn btn-fix">Lihat Semua di Artikel →</a>
         </div>
 
-    	</div>
+    </div>
+
+    
     </section>
 
     <section id="process">
@@ -275,7 +289,7 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
             <p>Hubungi saya langsung via chat untuk konsultasi awal—saya siap mendengarkan tantangan sistem Anda dan merancang solusi terbaik untuk platform Anda.</p>
             
             <div class="footer-cta-container">
-                <a href="https://api.whatsapp.com/send/?phone=6285706439821&text=Hi+Malikib%2C+Saya+melihat+website+portofolio+Anda.+Saya+ingin+mendiskusikan+kebutuhan+testing+aplikasi+web+saya+dan+melihat+apakah+kita+bisa+mengobrol+tentang+bagaimana+sistemnya?.&type=phone_number&app_absent=0" class="btn">→ Hubungi Malikib via Chat</a>
+                <a href="https://www.upwork.com/freelancers/~017309c0d1ad59cf28?mp_source=share" target="_blank" class="btn">→ Hubungi Saya di Upwork</a>
             </div>
 
             <div class="footer-socials">
@@ -293,10 +307,10 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
     </footer>
 
 
-    <!-- TOMBOL KOPI -->
-    <a href="https://teer.id/malikib" class="btn-traktir-kopi" target="_blank" title="Mau Traktir saya kopi?">
-     <i class="fa-solid fa-mug-hot"></i>
+    <!-- TOMBOL BACK TO TOP -->
+    <a href="#top" class="btn-traktir-kopi" title="Kembali ke atas">
+	<i class="fa-solid fa-arrow-up"></i>
     </a>
-
+    
 </body>
 </html>

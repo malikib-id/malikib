@@ -6,23 +6,24 @@
     <title>Automated Testing Solutions | Malikib</title>
     <link rel="icon" type="image/png" href="../M-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style-global.css" ">
     <!-- Aturan buat HP (layar dari 0px sampai 768px) -->
     <link rel="stylesheet" href="../style-hp.css" media="screen and (max-width: 768px)">
 </head>
-<body>
+<body id="top">
 
     <!-- HEADER / NAVIGATION -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">Maliki<span>b</span></a>
+            <a href="../portofolio/en/" class="logo">Maliki<span>b</span></a>
             <nav>
                 <ul>
                     <li><a href="#problems">Overview</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li hidden><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#process">Process</a></li>
-		    <li><a href="../">Bahasa Indonesia</a></li>
+		    <li><a href="../">ID</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,6 +37,13 @@
 
 Because let’s be honest—no business should lose clients just because a core feature failed after a deployment.</p>
             <a href="#contact" class="btn">Secure Your Release</a>
+	    
+	    <div class="video-container-profile">
+                <div class="video-placeholder">
+                    <div class="play-icon"></div>
+                </div>
+            </div>
+	    
         </div>
     </section>
 
@@ -75,7 +83,7 @@ Because let’s be honest—no business should lose clients just because a core 
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" hidden>
+    <section id="portfolio" >
         <div class="container">
             <h2>Open-Source Architecture & Portfolio</h2>
             <p>I believe in process transparency. You can inspect the source code, framework architecture, and execution logs of my recent work directly on GitHub:</p>
@@ -108,9 +116,49 @@ Because let’s be honest—no business should lose clients just because a core 
                         <a href="https://github.com" class="portfolio-link" target="_blank" rel="noopener">View UI Repository →</a>
                     </div>
                 </div>
+
+		<div class="btn-container">
+		    <a href="../portofolio/en/"  rel="noopener noreferrer" class="btn btn-fix">See More in Portofolio →</a>
+		</div>
+		
             </div> 
         </div>
     </section>
+
+
+    <!-- ARTICLE SECTION -->
+    <section id="articles">
+	<div class="container">
+            <h2>Latest Articles & Notes</h2>
+            <p>Sharing insights on QA Automation and the realities of the tech industry.</p>
+            
+            <div class="artikel-grid">
+		<a href="/artikel/automation-vs-manual.html" class="artikel-card">
+                    <div class="artikel-image-container">
+			<img src="../artikel/gambar/robot-bingung.png" alt="Manual vs Automation Article Thumbnail" class="artikel-image">
+                    </div>
+                    <div class="artikel-info">
+			<h3>Don't Rush into Automation If Your Application Is Far from Stable</h3>
+                    </div>
+		</a>
+
+		<a href="artikel/dev-testing.html" class="artikel-card">
+                    <div class="artikel-image-container">
+			<img src="../artikel/gambar/dev-testing.png" class="artikel-image">
+                    </div>
+                    <div class="artikel-info">
+			<h3>Why Developers Shouldn't Test Their Own Applications</h3>
+                    </div>
+		</a>
+            </div>
+
+            <div class="btn-container-artikel">
+		<a href="../portofolio/en/" class="btn btn-fix">View All Articles →</a>
+            </div>
+
+	</div>
+    </section>
+
 
     <!-- SECURE PROCESS SECTION -->
     <section id="process">
@@ -232,7 +280,7 @@ Because let’s be honest—no business should lose clients just because a core 
             <p>Contact me directly via chat for an initial consultation—I’m here to listen to your challenges and engineer the right solution for your platform.</p>
             
             <div class="footer-cta-container">
-                <a href="https://api.whatsapp.com/send/?phone=6285706439821&text=Hi+Malikib%2C+I+checked+your+portfolio+website.+I+want+to+discuss+my+web+application+testing+requirements+and+see+if+we+can+map+out+a+custom+blueprint+for+my+system.&type=phone_number&app_absent=0" class="btn">→ Contact Malikib via Chat</a>
+                <a href="https://www.upwork.com/freelancers/~017309c0d1ad59cf28?mp_source=share" target="_blank" rel="noopener noreferrer" class="btn">→ Chat With Me on Upwork</a>
             </div>
 
 	    <div class="footer-socials">
@@ -249,9 +297,9 @@ Because let’s be honest—no business should lose clients just because a core 
         </div>
     </footer>
 
-    <!-- TOMBOL KOPI -->
-    <a href="https://teer.id/malikib" class="btn-traktir-kopi" target="_blank" title="Mau Traktir saya kopi?">
-     <i class="fa-solid fa-mug-hot"></i>
+    <!-- TOMBOL BACK TO TOP -->
+    <a href="#top" class="btn-traktir-kopi" title="Kembali ke atas">
+	<i class="fa-solid fa-arrow-up"></i>
     </a>
 
     
