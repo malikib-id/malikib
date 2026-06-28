@@ -6,9 +6,10 @@
     <title>Jasa Automated Testing Web | Malikib</title>
     <link rel="icon" type="image/png" href="M-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style-global.css" ">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-global.css" ">
     <!-- Aturan buat HP (layar dari 0px sampai 768px) -->
-    <link rel="stylesheet" href="style-hp.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/style-hp.css" media="screen and (max-width: 768px)">
 </head>
 <body id="top">
 
@@ -21,7 +22,7 @@
                     <li><a href="#problems">Ringkasan</a></li>
                     <li><a href="#services">Pelayanan</a></li>
                     <li><a href="#portfolio">Portofolio</a></li>
-		    <li><a href="#artikel">Artikel</a></li>
+		    <li hidden><a href="#artikel">Artikel</a></li>
                     <li><a href="#process">Proses</a></li>
 		    <li><a href="en/">English</a></li>
                 </ul>
@@ -113,7 +114,7 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
 
 		<div class="btn-container">
 		    <a href="portofolio" class="btn btn-fix">Lihat Semua di Portofolio →</a>
-		</div>
+		</div>		
 		
             </div> 
         </div>
@@ -208,16 +209,16 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
                 </div>
             </details>
 	    
-	    <!-- FAQ 3 -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    Bagaimana sistem penentuan harga jasa di sini?
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Saya mematok harga per alur fitur (per skenario). Hal ini karena setiap fitur memiliki tingkat kerumitan yang berbeda. Sistem ini jauh lebih adil dan transparan, sehingga Anda hanya membayar sesuai dengan kompleksitas fitur yang ingin diuji (misal: Alur Login, Alur Checkout, dll).</p>
-                </div>
-            </details>
+	    <!-- FAQ 3 (Indonesia) -->
+	    <details class="faq-item">
+		<summary class="faq-question">
+		    Bagaimana sistem penentuan harga jasa di sini?
+		    <span class="faq-icon"></span>
+		</summary>
+		<div class="faq-answer">
+		    <p>Sistem penentuan harga di sini sangat fleksibel dan menyesuaikan kenyamanan Anda. Karena pengerjaannya melalui Upwork, kita bisa menggunakan sistem <strong>tarif per jam (hourly)</strong> atau <strong>harga tetap per proyek (fixed-price)</strong> berdasarkan alur fitur/skenario pengujian yang Anda butuhkan. Hubungi saya untuk mendiskusikan opsi terbaik bagi proyek Anda.</p>
+		</div>
+	    </details>
 	    
 	    <!-- FAQ 4 -->
             <details class="faq-item">
@@ -227,42 +228,27 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
             </summary>
             <div class="faq-answer">
 	    	 
-                     <p>Automated Testing menggunakan skrip kode khusus untuk menguji website Anda secara otomatis, instan, dan minim risiko human error. Layanan ini sangat menguntungkan karena skrip tersebut bisa dijalankan berulang kali setiap kali developer Anda melakukan pembaruan kode, sehingga menghemat waktu dan biaya rilis fitur baru Anda dalam jangka panjang.</p>
-		     
-                    </div>
+                <p>Automated Testing menggunakan skrip kode khusus untuk menguji website Anda secara otomatis, instan, dan minim risiko human error. Layanan ini sangat menguntungkan karena skrip tersebut bisa dijalankan berulang kali setiap kali developer Anda melakukan pembaruan kode, sehingga menghemat waktu dan biaya rilis fitur baru Anda dalam jangka panjang.</p>
+		
+            </div>
             </details>
 	    
-	    <!-- FAQ 5 -->
+	    <!-- FAQ 5 (Indonesia) -->
 	    <details class="faq-item">
-                <summary class="faq-question">
-		Bagaimana proses pengerjaan dan batasan garansi pengujian di sini?
-                    <span class="faq-icon"></span>
-            	</summary>
-            <div class="faq-answer">
-	    	 
-                     <p>Proses pengerjaan saya berfokus pada stabilitas alur fitur Anda sebelum skrip otomatisasi dibuat:</p>
-		     
-		     <style>
-  		     /* Perbaikan: Nama class harus ditulis lengkap setelah tanda titik */
-  		     ul.tanpa-titik-bawaan {
-    		     list-style-type: none; /* Menghapus titik/bullet bawaan browser */
-    		     padding-left: 0;       /* Menghilangkan jarak menjorok di sebelah kiri */
-    		     margin-left: 0;        /* Memastikan teks rata kiri */
-  		     }
-  
-		     /* Tips Tambahan: Memberi jarak antar baris agar FAQ lebih enak dibaca */
-  		     ul.tanpa-titik-bawaan li {
-    	       	     margin-bottom: 15px;   /* Jarak spasi bawah antar poin */
-  		     }
-		     </style>
-		     
-		     <ul class="tanpa-titik-bawaan">
-  		     <li>1. Fase Validasi Alur: Saya akan melakukan pengujian eksplorasi secara manual untuk memastikan alur fitur Anda sudah final dan tidak ada eror fatal yang menghentikan fungsi utama. Jika ada kendala, saya laporkan ke developer Anda dan memberikan 2x garansi pengujian ulang setelah diperbaiki.</li>
-  		     <li>2. Fase Pembuatan Skrip: Setelah alur fitur dipastikan stabil (artinya logika bisnis dan struktur halamannya tidak akan berubah secara signifikan dalam waktu dekat), saya akan mulai menulis skrip otomatisasinya.</li>
-		     </ul>
-		     
-                    </div>
-            </details>
+		<summary class="faq-question">
+		    Bagaimana proses pengerjaan dan batasan garansi pengujian di sini?
+		    <span class="faq-icon"></span>
+		</summary>
+		<div class="faq-answer">
+		    <p>Proses pengerjaan saya berfokus pada stabilitas alur fitur Anda sebelum skrip otomatisasi dibuat:</p>
+		    
+		    <ol class="faq-process-list">
+			<li><strong>Fase Validasi Alur:</strong> Saya akan melakukan pengujian eksplorasi secara manual untuk memastikan alur fitur Anda sudah final dan tidak ada eror fatal yang menghentikan fungsi utama. Jika ditemukan kendala, saya akan melaporkannya ke developer Anda dan memberikan garansi pengujian ulang sesuai dengan kesepakatan bersama setelah perbaikan selesai.</li>
+			<li><strong>Fase Pembuatan Skrip:</strong> Setelah alur fitur dipastikan stabil (artinya logika bisnis dan struktur halamannya tidak akan berubah secara signifikan dalam waktu dekat), saya akan mulai menulis skrip otomatisasinya.</li>
+		    </ol>
+
+		</div>
+	    </details>
 	    
 	    <!-- FAQ 6 -->
 	    <details class="faq-item">
@@ -272,10 +258,21 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
             </summary>
             <div class="faq-answer">
 	    	 
-                     <p>Skrip otomatisasi bekerja mengikuti langkah demi langkah yang presisi pada website Anda. Jika tim developer Anda melakukan perubahan alur yang signifikan di tengah jalan (misalnya mengubah struktur tombol atau melompati halaman proses), skrip otomatisasi yang sedang dibuat bisa tidak valid. Memastikan alur stabil di awal akan menjamin skrip otomatisasi Anda akurat dan tahan lama.</p>
-		     
-                    </div>
+                <p>Skrip otomatisasi bekerja mengikuti langkah demi langkah yang presisi pada website Anda. Jika tim developer Anda melakukan perubahan alur yang signifikan di tengah jalan (misalnya mengubah struktur tombol atau melompati halaman proses), skrip otomatisasi yang sedang dibuat bisa tidak valid. Memastikan alur stabil di awal akan menjamin skrip otomatisasi Anda akurat dan tahan lama.</p>
+		
+            </div>
             </details>
+
+	    <!-- FAQ 7 -->
+	    <details class="faq-item">
+		<summary class="faq-question">
+		    Bagaimana cara bekerja sama?
+		    <span class="faq-icon"></span>
+		</summary>
+		<div class="faq-answer">
+		    <p>Untuk klien Indonesia, kita bisa bekerja sama secara langsung via <strong>WhatsApp atau LinkedIn</strong> dengan sistem kontrak kerja yang transparan. Pembayaran dapat dilakukan melalui transfer bank lokal secara bertahap (sistem DP) atau menggunakan platform pihak ketiga sesuai kesepakatan bersama demi keamanan kedua belah pihak.</p>
+		</div>
+	    </details>
 
 
             </div>
@@ -289,7 +286,7 @@ Mari jujur—tidak boleh ada bisnis yang kehilangan pelanggan hanya karena fitur
             <p>Hubungi saya langsung via chat untuk konsultasi awal—saya siap mendengarkan tantangan sistem Anda dan merancang solusi terbaik untuk platform Anda.</p>
             
             <div class="footer-cta-container">
-                <a href="https://www.upwork.com/freelancers/~017309c0d1ad59cf28?mp_source=share" target="_blank" class="btn">→ Hubungi Saya di Upwork</a>
+                <a href="https://api.whatsapp.com/send/?phone=6285706439821&text=Hi+Malikib%2C+Saya+melihat+website+portofolio+Anda.+Saya+ingin+mendiskusikan+kebutuhan+testing+aplikasi+web+saya+dan+melihat+apakah+kita+bisa+mengobrol+tentang+bagaimana+sistemnya?.&type=phone_number&app_absent=0" target="_blank" class="btn">→ Hubungi Saya via Chat</a>
             </div>
 
             <div class="footer-socials">

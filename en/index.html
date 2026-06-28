@@ -7,16 +7,16 @@
     <link rel="icon" type="image/png" href="../M-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style-global.css" ">
+    <link rel="stylesheet" href="../css/style-global.css" ">
     <!-- Aturan buat HP (layar dari 0px sampai 768px) -->
-    <link rel="stylesheet" href="../style-hp.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../css/style-hp.css" media="screen and (max-width: 768px)">
 </head>
 <body id="top">
 
     <!-- HEADER / NAVIGATION -->
     <header>
         <div class="container nav-container">
-            <a href="../portofolio/en/" class="logo">Maliki<span>b</span></a>
+            <a href="portfolio/" class="logo">Maliki<span>b</span></a>
             <nav>
                 <ul>
                     <li><a href="#problems">Overview</a></li>
@@ -118,8 +118,9 @@ Because let’s be honest—no business should lose clients just because a core 
                 </div>
 
 		<div class="btn-container">
-		    <a href="../portofolio/en/"  rel="noopener noreferrer" class="btn btn-fix">See More in Portofolio →</a>
+		    <a href="portfolio/"  rel="noopener noreferrer" class="btn btn-fix">See More in Portofolio →</a>
 		</div>
+		
 		
             </div> 
         </div>
@@ -212,16 +213,18 @@ Because let’s be honest—no business should lose clients just because a core 
                 </div>
             	</details>
         
+		<!-- FAQ 3 (English) -->
 		<details class="faq-item">
-                <summary class="faq-question">
-                    How is the service pricing determined?
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>I charge per feature workflow (per scenario). This is because each feature has a different level of complexity. This system is much fairer and more transparent, ensuring you only pay according to the complexity of the specific feature you want to test (e.g., Login Flow, Checkout Flow, etc.).</p>
-                </div>
-            	</details>
-        
+		    <summary class="faq-question">
+			How is the service pricing determined?
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>My pricing is highly flexible to suit your budget. Since we will be collaborating through Upwork, we can work with an <strong>hourly rate (ranging from $15 to $25/hr)</strong> for ongoing support, or a <strong>fixed-price contract</strong> tailored specifically to the number of user flows and the complexity of the test automation scenarios you need.</p>
+		    </div>
+		</details>
+
+		
 		<details class="faq-item">
                 <summary class="faq-question">
                     Why does your service use Automated Testing? What is the benefit for my business?
@@ -231,34 +234,23 @@ Because let’s be honest—no business should lose clients just because a core 
                     <p>Automated Testing uses specialized code scripts to test your website automatically, instantly, and with minimal risk of human error. This service is highly beneficial because the scripts can be executed repeatedly every time your developers deploy code updates, saving you time and money on releasing new features in the long run.</p>
                 </div>
             	</details>
-        
+		
+		<!-- FAQ 5 (English) -->
 		<details class="faq-item">
-                <summary class="faq-question">
-                    What is the workflow and the warranty scope for the testing service?
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>My workflow focuses on stabilizing your feature alinement before the automation scripts are built:</p>
-             
-                    <style>
-                        ul.no-default-bullets {
-                            list-style-type: none; /* Removes default browser bullets */
-                            padding-left: 0;       /* Removes left indentation */
-                            margin-left: 0;        /* Ensures text aligns to the left */
-                        }
-          
-                        ul.no-default-bullets li {
-                            margin-bottom: 15px;   /* Spacing between points */
-                        }
-                    </style>
-             
-                    <ul class="no-default-bullets">
-                        <li>1. Workflow Validation Phase: I will conduct manual exploratory testing to ensure your feature workflow is final and free of fatal bugs that halt core functionality. If any issues are found, I will report them to your developer and provide a 2x re-testing warranty after the fix.</li>
-                        <li>2. Script Scripting Phase: Once the feature workflow is confirmed stable (meaning the business logic and page structure will not significantly change in the near future), I will begin writing the automation scripts.</li>
-                    </ul>
-                </div>
-            	</details>
-        
+		    <summary class="faq-question">
+			What is your testing workflow and warranty policy?
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>My workflow focuses on stabilizing your feature flows before any automation scripts are written:</p>
+			
+			<ol class="faq-process-list">
+			    <li><strong>Flow Validation Phase:</strong> I perform manual exploratory testing to ensure your feature flows are finalized and free of critical errors. If any issues arise, I will report them to your developer and provide re-testing warranties based on our mutual agreement once the fixes are deployed.</li>
+			    <li><strong>Script Generation Phase:</strong> Once the feature flow is proven stable (meaning business logic and page structures won't shift significantly soon), I will begin writing the automated test scripts.</li>
+			</ol>
+		    </div>
+		</details>
+		
 		<details class="faq-item">
                 <summary class="faq-question">
                     Why must the feature workflow be stable before scripts are created?
@@ -268,6 +260,18 @@ Because let’s be honest—no business should lose clients just because a core 
                     <p>Automation scripts follow precise, step-by-step actions on your website. If your development team makes significant workflow adjustments mid-way (such as changing button structures or skipping process pages), the automation scripts being built can break. Ensuring a stable workflow from the start guarantees that your automation scripts remain accurate and durable.</p>
                 </div>
             	</details>
+
+		<details class="faq-item">
+		    <summary class="faq-question">
+			How do we collaborate? ( Important )
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>To ensure security and mutual peace of mind, payments can be processed through secure third-party escrow services like <strong>Upwork</strong> so that both parties are fully protected.</p>
+		    </div>
+		</details>
+
+		
             </div>
     	</div>
     </section>

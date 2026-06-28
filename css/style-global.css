@@ -136,7 +136,7 @@ section:last-of-type {
 }
 
 /* 1. Atur kotak pembungkusnya (Keduanya digabung dulu untuk fungsi dasar) */
-.btn-container, .btn-container-artikel { /* <--- WAJIB pakai titik di depan btn-container-artikel */
+.btn-container, .btn-container-artikel, .btn-container-cv { /* <--- WAJIB pakai titik di depan btn-container-artikel */
     display: flex;
     justify-content: center; 
     width: 100%;            
@@ -149,6 +149,10 @@ section:last-of-type {
 /* 2. Khusus untuk artikel, timpa jaraknya agar lebih menjauh */
 .btn-container-artikel {
     margin-top: 3.5rem; /* Angka ini akan sukses menimpa 2rem di atas karena posisinya di bawah */
+}
+
+.btn-container-cv {
+    margin-top: 1rem; /* Angka ini akan sukses menimpa 2rem di atas karena posisinya di bawah */
 }
 
 
@@ -376,7 +380,19 @@ nav a:hover {
     /* Efek animasi berdenyut di latar belakang */
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
     animation: pulseGlow 2s infinite;
+
+    /* --- HANYA TAMBAHKAN 2 BARIS INI UNTUK MENYEMBUNYIKAN --- */
+    opacity: 0;
+    pointer-events: none; /* Mencegah ikon bisa diklik saat tidak terlihat */
 }
+
+/* Munculkan kembali play-icon saat salah satu container video di-hover */
+.video-container:hover .play-icon,
+.video-container-profile:hover .play-icon {
+    opacity: 1;
+    pointer-events: auto; /* Mengaktifkan kembali fungsi klik ikon */
+}
+
 
 .play-icon::after {
     content: '';
@@ -403,13 +419,7 @@ nav a:hover {
 
 /* --- EFEK SAAT KURSOR MASUK (HOVER) --- */
 
-/* 1. Ketika Card di-hover: Tombol membesar, warna solid, dan ANIMASI BERHENTI */
-.portfolio-card:hover .play-icon {
-    background-color: var(--accent-blue);
-    transform: scale(1.08);
-    animation-play-state: paused; /* Memperhentikan animasi berdenyut */
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); /* Efek bayangan diam yang solid */
-}
+
 
 /* 2. Ketika kursor tepat di atas Tombol Play: Efek invert premium & ANIMASI TETAP BERHENTI */
 .play-icon:hover {
@@ -696,6 +706,11 @@ footer {
     transition: var(--transition);
 }
 
+.faq-question:hover {
+    color: var(--accent-blue);
+}
+
+
 .faq-icon {
     width: 36px;
     height: 36px;
@@ -736,6 +751,18 @@ footer {
     margin: 0;
 }
 
+/* Gaya khusus untuk daftar proses di dalam FAQ */
+.faq-process-list {
+    padding-left: 20px; /* Memberikan sedikit jarak masuk untuk angka agar rapi */
+    margin-top: 10px;
+}
+
+.faq-process-list li {
+    margin-bottom: 15px; /* Jarak antar poin baris */
+    line-height: 1.6;    /* Membuat teks paragraf list lebih nyaman dibaca */
+}
+
+
 /* --- FLOATING COMPONENTS --- */
 /* === CSS UNTUK WADAH KATEGORI STACK === */
 .tech-stack-container {
@@ -761,3 +788,4 @@ footer {
     display: inline-flex;
     align-items: center;
 }
+
