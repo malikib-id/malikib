@@ -1,0 +1,791 @@
+/* --- RESET & VARIABLES --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+:root {
+    --bg-pure: #000000;
+    --bg-dark: #0a0a0c;
+    --bg-card: #121215;
+    --text-primary: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-blue: #2563eb;
+    --accent-blue-hover: #3b82f6;
+    --border-color: #1f2937;
+    --border-glow: #2563eb40;
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --max-width: 1100px;
+    --radius: 8px;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* --- GLOBAL STYLES --- */
+body {
+    background-color: var(--bg-pure);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+}
+
+img, video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.85rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+strong {
+    color: #ffffff;
+}
+
+/* === CSS UNTUK CATATAN KECIL REPO PRIVATE === */
+.repo-note {
+    display: block;
+    font-size: 0.75rem;      /* Ukuran font kecil agar tidak mengalihkan tombol */
+    color: #718096;          /* Warna abu-abu redup/muted text */
+    margin-top: 0.75rem;     /* Jarak renggang dari tombol di atasnya */
+    font-style: italic;      /* Format miring khas teks keterangan */
+}
+
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-blue-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--border-glow);
+}
+
+/* 1. Atur kotak pembungkusnya (Keduanya digabung dulu untuk fungsi dasar) */
+.btn-container, .btn-container-artikel, .btn-container-cv { /* <--- WAJIB pakai titik di depan btn-container-artikel */
+    display: flex;
+    justify-content: center; 
+    width: 100%;            
+    margin-top: 2rem; 
+    
+    /* SOLUSI KUNCI: */
+    grid-column: 1 / -1; 
+}
+
+/* 2. Khusus untuk artikel, timpa jaraknya agar lebih menjauh */
+.btn-container-artikel {
+    margin-top: 3.5rem; /* Angka ini akan sukses menimpa 2rem di atas karena posisinya di bawah */
+}
+
+.btn-container-cv {
+    margin-top: 1rem; /* Angka ini akan sukses menimpa 2rem di atas karena posisinya di bawah */
+}
+
+
+.btn-fix {
+    width: 260px;            
+    padding-left: 0;         
+    padding-right: 0;
+    transform: none; /* Memastikan tombol tidak bergeser karena efek hover bawaan */
+}
+
+
+.btn-traktir-kopi { /* tombol pop up untuk ke atas, namanya aja males di ganti */
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-blue);
+    color: #a0aec0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: var(--border-glow);
+    z-index: 99999; 
+    transition: all 0.3s ease;
+}
+
+.btn-traktir-kopi:hover {
+    background-color: var(--accent-blue-hover);
+    filter: brightness(1.2);
+    
+    /* KUNCI: Dipaksa rotasi tetap 0deg (lurus) dan digeser naik ke atas 6px */
+    transform: scale(1.1) rotate(0deg) translateY(-6px) !important;
+    
+    box-shadow: 0 10px 20px var(--border-glow);
+}
+
+
+/* --- HEADER & NAV --- */
+header {
+    background-color: rgba(10, 10, 12, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container, .nav-container-subpages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* FIXED: Pembenahan typo align-item */
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+}
+
+.logo:hover, .logo span {
+    color: var(--accent-blue); /* KEDUA DUPLIKAT DISATUKAN DI SINI */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+nav a:hover {
+    color: var(--text-primary);
+}
+
+/* --- HERO --- */
+.hero {
+    background: radial-gradient(circle at 80% 20%, #2563eb15 0%, transparent 50%), var(--bg-dark);
+    padding: 6.5rem 0 5.5rem 0;
+    text-align: left;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.25rem;
+}
+
+/* --- PROBLEM --- */
+.problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.problem-list li {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+}
+
+/* --- SOLUTIONS --- */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.solution-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2.25rem;
+    border-radius: var(--radius);
+}
+
+.solution-card h3 {
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 0.75rem;
+}
+
+/* --- PORTFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    justify-content: center; 
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.portfolio-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.portfolio-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 20px var(--border-glow);
+}
+
+/* 1. Gabungkan semua properti yang SAMA */
+.video-container, 
+.video-container-profile {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 2. Tulis properti KHUSUS untuk versi profil saja */
+.video-container-profile {
+    margin-top: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* --- 3. EFEK HOVER BERSINAR KHUSUS PROFIL (YANG SUDAH DIPERBAIKI) --- */
+.video-container-profile:hover {
+    border-color: var(--accent-blue);
+    
+    /* Menggabungkan bayangan hitam bawaan DAN glow biru agar tidak kaku */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.18), 
+        0 4px 25px var(--border-glow);
+    
+    transform: translateY(-4px); /* Sedikit dinaikkan agar efek bayangan ganda di bawahnya makin terlihat hidup */
+}
+
+
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #111827 0%, #030712 100%);
+}
+
+.play-icon {
+    width: 64px; /* Sedikit diperbesar agar lebih terlihat (opsional) */
+    height: 64px;
+    background-color: var(--accent-blue); /* Diubah jadi solid agar kontras dengan latar video */
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    cursor: pointer;
+    
+    /* Efek animasi berdenyut di latar belakang */
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    animation: pulseGlow 2s infinite;
+
+    /* --- HANYA TAMBAHKAN 2 BARIS INI UNTUK MENYEMBUNYIKAN --- */
+    opacity: 0;
+    pointer-events: none; /* Mencegah ikon bisa diklik saat tidak terlihat */
+}
+
+/* Munculkan kembali play-icon saat salah satu container video di-hover */
+.video-container:hover .play-icon,
+.video-container-profile:hover .play-icon {
+    opacity: 1;
+    pointer-events: auto; /* Mengaktifkan kembali fungsi klik ikon */
+}
+
+
+.play-icon::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 16px; /* Disesuaikan ukurannya */
+    border-color: transparent transparent transparent #ffffff;
+    margin-left: 5px; /* Menyeimbangkan posisi segitiga di tengah lingkaran */
+    transition: var(--transition);
+}
+
+/* --- EFEK INTERAKTIF SAAT KURSOR DI ATAS VIDEO/TOMBOL --- */
+
+/* Efek saat tombol play di-hover */
+.play-icon:hover {
+    transform: scale(1.1); /* Tombol sedikit membesar */
+    background-color: #ffffff; /* Warna latar berubah jadi putih */
+    border-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); /* Bayangan biru yang kuat */
+}
+
+
+/* --- EFEK SAAT KURSOR MASUK (HOVER) --- */
+
+
+
+/* 2. Ketika kursor tepat di atas Tombol Play: Efek invert premium & ANIMASI TETAP BERHENTI */
+.play-icon:hover {
+    background-color: #ffffff !important; /* Memaksa warna jadi putih dibanding hover card */
+    border-color: #ffffff;
+    transform: scale(1.15) !important; /* Sedikit lebih besar dari efek hover card */
+    animation-play-state: paused; /* Memastikan animasi tetap berhenti */
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* Mengubah warna segitiga menjadi biru hanya ketika tombolnya langsung di-hover */
+.play-icon:hover::after {
+    border-color: transparent transparent transparent var(--accent-blue);
+}
+
+
+/* --- ANIMASI BERDENYUT (PULSE) --- */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+
+.portfolio-card:hover .play-icon {
+    background-color: var(--accent-blue);
+    transform: scale(1.08);
+}
+
+
+.portfolio-info {
+    padding: 1.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.portfolio-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+.portfolio-link:hover {
+    color: var(--accent-blue-hover);
+}
+
+/* --- PROCESS --- */
+.process-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.process-step {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+}
+
+.process-step:hover::before {
+    background-color: var(--accent-blue);
+}
+
+.process-step strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.process-step p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* --- CTA FOOTER --- */
+footer {
+    background: radial-gradient(circle at 50% 100%, #2563eb10 0%, transparent 60%), var(--bg-dark);
+    padding: 6rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-content h2 {
+    font-size: 2.2rem;
+}
+
+.footer-content p {
+    margin-bottom: 2rem;
+}
+
+/* CLEANED: Menghapus duplikat deklarasi berat footer-socials global */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;        
+    margin-top: 5.5rem;  
+    margin-bottom: 2rem;
+}
+
+.footer-socials a {
+    display: inline-block;
+    color: #a0aec0;     
+    font-size: 1.8rem;   
+    transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #2563eb;     
+    transform: translateY(-3px); 
+}
+
+/* --- ARTIKEL SECTION --- */
+.artikel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    justify-content: center; 
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.artikel-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: inherit; 
+    transition: var(--transition);
+}
+
+.artikel-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 20px var(--border-glow);
+    transform: translateY(-4px); 
+}
+
+.artikel-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; 
+    background-color: #000000;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.artikel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: var(--transition);
+}
+
+.artikel-card:hover .artikel-image {
+    transform: scale(1.03);
+}
+
+.artikel-info {
+    padding: 1.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.artikel-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    color: #ffffff; 
+    transition: var(--transition);
+}
+
+.artikel-card:hover .artikel-info h3 {
+    color: var(--accent-blue); 
+}
+
+
+/* --- ARTIKEL FOOTER & LOGO FIXED --- */
+.artikel-footer {
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    font-family: var(--font-sans);
+}
+
+.artikel-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* FIXED: Mengubah flex menjadi inline-flex agar logo footer sejajar rapi di tengah */
+#logo-footer {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.25rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+#logo-footer:hover {
+    color: var(--accent-blue);
+}
+
+/* --- FAQ SECTION --- */
+#faq-section {
+    padding: 20px 0;
+    font-family: var(--font-sans);
+}
+
+.faq-title {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.faq-wrapper {
+    width: 100%;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+.faq-item summary {
+    list-style: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    color: var(--accent-blue);
+}
+
+
+.faq-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer; 
+    transition: var(--transition);
+}
+
+.faq-icon::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg) translate(-1px, -1px);
+    transition: var(--transition);
+}
+
+.faq-icon:hover::after {
+    border-color: var(--accent-blue-hover);
+}
+
+.faq-item[open] .faq-icon::after {
+    transform: rotate(225deg) translate(1px, 1px);
+}
+
+.faq-answer {
+    padding-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* Gaya khusus untuk daftar proses di dalam FAQ */
+.faq-process-list {
+    padding-left: 20px; /* Memberikan sedikit jarak masuk untuk angka agar rapi */
+    margin-top: 10px;
+}
+
+.faq-process-list li {
+    margin-bottom: 15px; /* Jarak antar poin baris */
+    line-height: 1.6;    /* Membuat teks paragraf list lebih nyaman dibaca */
+}
+
+
+/* --- FLOATING COMPONENTS --- */
+/* === CSS UNTUK WADAH KATEGORI STACK === */
+.tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* === CSS UNTUK KOTAK KATEGORI BER-BORDER === */
+.stack-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-blue); /* Menggunakan variabel warna birumu */
+    padding: 0.35rem 0.75rem;
+    
+    /* PENGATURAN BORDER DAN RADIUS */
+    border: 1px solid var(--border-color); /* Garis border tegas mengikuti tema web */
+    border-radius: var(--radius); /* Sudut melengkung tipis agar serasi dengan card */
+    background-color: transparent; /* Latar belakang polos tanpa warna block */
+    
+    display: inline-flex;
+    align-items: center;
+}
+

@@ -6,23 +6,24 @@
     <title>Automated Testing Solutions | Malikib</title>
     <link rel="icon" type="image/png" href="../M-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../style-global.css" ">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style-global.css" ">
     <!-- Aturan buat HP (layar dari 0px sampai 768px) -->
-    <link rel="stylesheet" href="../style-hp.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../css/style-hp.css" media="screen and (max-width: 768px)">
 </head>
-<body>
+<body id="top">
 
     <!-- HEADER / NAVIGATION -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">Maliki<span>b</span></a>
+            <a href="portfolio/" class="logo">Maliki<span>b</span></a>
             <nav>
                 <ul>
                     <li><a href="#problems">Overview</a></li>
                     <li><a href="#services">Services</a></li>
                     <li hidden><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#process">Process</a></li>
-		    <li><a href="../">Bahasa Indonesia</a></li>
+		    <li><a href="../">ID</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,6 +37,13 @@
 
 Because let’s be honest—no business should lose clients just because a core feature failed after a deployment.</p>
             <a href="#contact" class="btn">Secure Your Release</a>
+	    
+	    <div class="video-container-profile" hidden>
+                <div class="video-placeholder">
+                    <div class="play-icon"></div>
+                </div>
+            </div>
+	    
         </div>
     </section>
 
@@ -108,9 +116,50 @@ Because let’s be honest—no business should lose clients just because a core 
                         <a href="https://github.com" class="portfolio-link" target="_blank" rel="noopener">View UI Repository →</a>
                     </div>
                 </div>
+
+		<div class="btn-container">
+		    <a href="portfolio/"  rel="noopener noreferrer" class="btn btn-fix">See More in Portofolio →</a>
+		</div>
+		
+		
             </div> 
         </div>
     </section>
+
+
+    <!-- ARTICLE SECTION -->
+    <section id="articles">
+	<div class="container">
+            <h2>Latest Articles & Notes</h2>
+            <p>Sharing insights on QA Automation and the realities of the tech industry.</p>
+            
+            <div class="artikel-grid">
+		<a href="/artikel/automation-vs-manual.html" class="artikel-card">
+                    <div class="artikel-image-container">
+			<img src="../artikel/gambar/robot-bingung.png" alt="Manual vs Automation Article Thumbnail" class="artikel-image">
+                    </div>
+                    <div class="artikel-info">
+			<h3>Don't Rush into Automation If Your Application Is Far from Stable</h3>
+                    </div>
+		</a>
+
+		<a href="artikel/dev-testing.html" class="artikel-card">
+                    <div class="artikel-image-container">
+			<img src="../artikel/gambar/dev-testing.png" class="artikel-image">
+                    </div>
+                    <div class="artikel-info">
+			<h3>Why Developers Shouldn't Test Their Own Applications</h3>
+                    </div>
+		</a>
+            </div>
+
+            <div class="btn-container-artikel">
+		<a href="../portofolio/en/" class="btn btn-fix">View All Articles →</a>
+            </div>
+
+	</div>
+    </section>
+
 
     <!-- SECURE PROCESS SECTION -->
     <section id="process">
@@ -164,16 +213,26 @@ Because let’s be honest—no business should lose clients just because a core 
                 </div>
             	</details>
         
+		<!-- FAQ 3 (English) -->
 		<details class="faq-item">
-                <summary class="faq-question">
-                    How is the service pricing determined?
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>I charge per feature workflow (per scenario). This is because each feature has a different level of complexity. This system is much fairer and more transparent, ensuring you only pay according to the complexity of the specific feature you want to test (e.g., Login Flow, Checkout Flow, etc.).</p>
-                </div>
-            	</details>
-        
+		    <summary class="faq-question">
+			How is the service pricing determined?
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>Highly flexible and tailored to your project:</p>
+			
+			<ol class="faq-process-list">
+			    <li><strong>Hourly rate</strong> for ongoing support.</li>
+			    <li><strong>Fixed-price</strong> contract based on test scenario complexity.</li>
+			</ol>
+			<p>All billing is securely processed through reputable remote-work platforms or escrow services.</p>
+		    </div>
+		</details>
+
+	     </details>
+
+		
 		<details class="faq-item">
                 <summary class="faq-question">
                     Why does your service use Automated Testing? What is the benefit for my business?
@@ -183,34 +242,23 @@ Because let’s be honest—no business should lose clients just because a core 
                     <p>Automated Testing uses specialized code scripts to test your website automatically, instantly, and with minimal risk of human error. This service is highly beneficial because the scripts can be executed repeatedly every time your developers deploy code updates, saving you time and money on releasing new features in the long run.</p>
                 </div>
             	</details>
-        
+		
+		<!-- FAQ 5 (English) -->
 		<details class="faq-item">
-                <summary class="faq-question">
-                    What is the workflow and the warranty scope for the testing service?
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>My workflow focuses on stabilizing your feature alinement before the automation scripts are built:</p>
-             
-                    <style>
-                        ul.no-default-bullets {
-                            list-style-type: none; /* Removes default browser bullets */
-                            padding-left: 0;       /* Removes left indentation */
-                            margin-left: 0;        /* Ensures text aligns to the left */
-                        }
-          
-                        ul.no-default-bullets li {
-                            margin-bottom: 15px;   /* Spacing between points */
-                        }
-                    </style>
-             
-                    <ul class="no-default-bullets">
-                        <li>1. Workflow Validation Phase: I will conduct manual exploratory testing to ensure your feature workflow is final and free of fatal bugs that halt core functionality. If any issues are found, I will report them to your developer and provide a 2x re-testing warranty after the fix.</li>
-                        <li>2. Script Scripting Phase: Once the feature workflow is confirmed stable (meaning the business logic and page structure will not significantly change in the near future), I will begin writing the automation scripts.</li>
-                    </ul>
-                </div>
-            	</details>
-        
+		    <summary class="faq-question">
+			What is your testing workflow and warranty policy?
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>My workflow focuses on stabilizing your feature flows before any automation scripts are written:</p>
+			
+			<ol class="faq-process-list">
+			    <li><strong>Flow Validation Phase:</strong> I perform manual exploratory testing to ensure your feature flows are finalized and free of critical errors. If any issues arise, I will report them to your developer and provide re-testing warranties based on our mutual agreement once the fixes are deployed.</li>
+			    <li><strong>Script Generation Phase:</strong> Once the feature flow is proven stable (meaning business logic and page structures won't shift significantly soon), I will begin writing the automated test scripts.</li>
+			</ol>
+		    </div>
+		</details>
+		
 		<details class="faq-item">
                 <summary class="faq-question">
                     Why must the feature workflow be stable before scripts are created?
@@ -220,6 +268,18 @@ Because let’s be honest—no business should lose clients just because a core 
                     <p>Automation scripts follow precise, step-by-step actions on your website. If your development team makes significant workflow adjustments mid-way (such as changing button structures or skipping process pages), the automation scripts being built can break. Ensuring a stable workflow from the start guarantees that your automation scripts remain accurate and durable.</p>
                 </div>
             	</details>
+
+		<details class="faq-item">
+		    <summary class="faq-question">
+			How do we collaborate? ( Important )
+			<span class="faq-icon"></span>
+		    </summary>
+		    <div class="faq-answer">
+			<p>I utilize secure escrow systems and trusted payment protection platforms to ensure every project is fully protected and legally secure for both parties.</p>
+		    </div>
+		</details>
+
+		
             </div>
     	</div>
     </section>
@@ -229,18 +289,17 @@ Because let’s be honest—no business should lose clients just because a core 
         <div class="container footer-content">
             <h2>Ready to Secure Your Next Web Release?</h2>
             <p>Don't wait for a critical crash to find the weak spots in your system. Let’s map out your testing needs together.</p>
-            <p>Contact me directly via chat for an initial consultation—I’m here to listen to your challenges and engineer the right solution for your platform.</p>
+            <p>Whether you need a contract engineer or a freelance partner, let's connect! We can safely collaborate via LinkedIn, Upwork, or any secure remote-work platform.</p>
             
             <div class="footer-cta-container">
-                <a href="https://api.whatsapp.com/send/?phone=6285706439821&text=Hi+Malikib%2C+I+checked+your+portfolio+website.+I+want+to+discuss+my+web+application+testing+requirements+and+see+if+we+can+map+out+a+custom+blueprint+for+my+system.&type=phone_number&app_absent=0" class="btn">→ Contact Malikib via Chat</a>
+                <a href="https://linkedin.com/in/malikib" target="_blank" rel="noopener noreferrer" class="btn">→ Connect on LinkedIn </a>
             </div>
 
 	    <div class="footer-socials">
             <a href="mailto:maulmalikib@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/malikib" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+	    <a href="https://www.upwork.com/freelancers/~017309c0d1ad59cf28?mp_source=share" target="_blank" title="Upwork"><i class="fa-brands fa-upwork"></i></a>
             <a href="https://github.com/lana-24" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://instagram.com/malikib.id" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://tiktok.com/@malikib874" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
             <a href="https://youtube.com/@malikib_id" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
 	    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; margin-bottom: 0;">
@@ -249,9 +308,9 @@ Because let’s be honest—no business should lose clients just because a core 
         </div>
     </footer>
 
-    <!-- TOMBOL KOPI -->
-    <a href="https://teer.id/malikib" class="btn-traktir-kopi" target="_blank" title="Mau Traktir saya kopi?">
-     <i class="fa-solid fa-mug-hot"></i>
+    <!-- TOMBOL BACK TO TOP -->
+    <a href="#top" class="btn-traktir-kopi" title="Kembali ke atas">
+	<i class="fa-solid fa-arrow-up"></i>
     </a>
 
     

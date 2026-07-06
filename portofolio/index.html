@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maulana Malik Ibrahim | Engineer & QA Automation</title>
 	<link rel="icon" type="image/png" href="../M-icon.png">
-	<link rel="stylesheet" href="../style-global.css">
-	<link rel="stylesheet" href="../style-hp.css" media="screen and (max-width: 768px)">
+	<link rel="stylesheet" href="../css/style-global.css">
+	<link rel="stylesheet" href="../css/style-hp.css" media="screen and (max-width: 768px)">
 	<!-- Font Inter & Font Awesome -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     </head>
     <body>
 
@@ -61,6 +61,44 @@
             </div>
 	</section>
 
+	<!-- --- SHOWCASE SECTION --- -->
+	<section id="showcase">
+	    <div class="container">
+		<h2>Studi Kasus</h2>
+		<div class="solutions-grid">
+		    <!-- 1 KARTU UTAMA -->
+		    <div class="solution-card">
+			<h3>Otomatisasi End-to-End & Pipeline CI/CD untuk POS SaaS</h3>
+			<p style="margin-top: 1rem; margin-bottom: 0;">
+			    Berkolaborasi langsung dengan seorang full-stack developer untuk membangun seluruh framework automation testing dari nol pada platform POS SaaS. Merancang skrip pengujian otomatis untuk memvalidasi fitur utama transaksi dan inventaris. Membangun pipeline CI/CD menggunakan GitHub Actions yang otomatis memicu seluruh skrip pengujian setiap kali ada push ke main branch, memastikan umpan balik cepat sebelum kode dirilis.
+			</p>
+			
+			<!-- KATEGORI STACK DENGAN BORDER -->
+			<div class="tech-stack-container">
+			    <span class="stack-category">TypeScript</span>
+			    <span class="stack-category">Playwright</span>
+			    <span class="stack-category">GitHub Actions</span>
+			    <span class="stack-category">Allure Report</span>
+			</div>
+
+			<!-- TOMBOL ALLURE MENGGUNAKAN CLASS .btn UTAMAMU -->
+			<div class="allure-btn-wrapper">
+			    <a href="../source/report/" target="_blank" rel="noopener noreferrer" class="btn">
+				Lihat Laporan Allure Otomatis →
+			    </a>
+			</div>
+			<small class="repo-note">Catatan: Repositori kode bersifat privat.</small>
+		    </div>
+
+		    <div class="btn-container-cv">
+			<!-- Langsung arahkan ke file PDF CV Anda -->
+			<a href="https://drive.google.com/drive/folders/18D36qcQZNmC2jWRIvEJ6mdLvzMjagZei?usp=drive_link" download target="_blank" class="btn btn-fix">Lihat CV Saya</a>
+		    </div>
+
+		</div>		
+	    </div>
+	</section>
+
 	<!-- --- PORTFOLIO SECTION --- -->
 	<section id="portfolio">
 	    <div class="container">
@@ -70,8 +108,8 @@
 		    <!-- Card 1: Rekomendasi Solo Developer -->
 		    <div class="portfolio-card">
 			<!-- BUNGKUS GAMBAR PAKAI TAG A -->
-			<a href="mas-taufiq-pos-saas.png" target="_blank" class="artikel-image-container">
-			    <img src="mas-taufiq-pos-saas.png" alt="Screenshot Rekomendasi SaaS Project" class="artikel-image">
+			<a href="../source/mas-taufiq-pos-saas.png" target="_blank" class="artikel-image-container">
+			    <img src="../source/mas-taufiq-pos-saas.png" alt="Screenshot Rekomendasi SaaS Project" class="artikel-image">
 			</a>
 			
 			<div class="portfolio-info" style="padding: 1.5rem;">
@@ -95,23 +133,27 @@
 		</p>
 		
 		<div class="footer-cta-container">
-                    <a href="https://wa.me/6285706439821" target="_blank" class="btn">
-			<i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i>Hubungi via WhatsApp
-                    </a>
-		</div>
-
-		<div class="footer-socials">
-                    <a href="https://linkedin.com/in/malikib" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/lana-24" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-		    <a href="https://instagram.com/malikib.id" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="mailto:maulmalikib@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/malikib" target="_blank" rel="noopener noreferrer" class="btn">→ Hubungi di LinkedIn </a>
 		</div>
 		
+		<div class="footer-socials">
+		    <a href="mailto:maulmalikib@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+		    <a href="https://www.upwork.com/freelancers/~017309c0d1ad59cf28?mp_source=share" target="_blank" title="Upwork"><i class="fa-brands fa-upwork"></i></a>
+		    <a href="https://github.com/lana-24" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+		    <a href="https://instagram.com/malikib.id" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+		    <a href="https://youtube.com/@malikib_id" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+		</div>
+	    
 		<p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; margin-bottom: 0;">
                     &copy; 2026 Malikib. All rights reserved.
 		</p>
             </div>
 	</footer>
+
+	<!-- TOMBOL BACK TO TOP -->
+	<a href="#top" class="btn-traktir-kopi" title="Kembali ke atas">
+	    <i class="fa-solid fa-arrow-up"></i>
+	</a>
 
     </body>
 </html>
