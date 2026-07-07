@@ -2,7 +2,7 @@
 .artikel-main {
     background-color: var(--bg-pure);
     min-height: 80vh;
-    padding: 4rem 0;
+    padding: 3rem 0 5rem 0; /* Dioptimalkan: Jarak bawah lebih longgar untuk kenyamanan membaca */
 }
 
 .artikel-container {
@@ -13,7 +13,7 @@
 
 /* --- HEADER / NAVIGASI --- */
 .artikel-header {
-    padding: 2rem 0;
+    padding: 1.5rem 0; /* Dioptimalkan: Sedikit lebih tipis agar tidak memakan ruang layar */
     background-color: var(--bg-dark);
     border-bottom: 1px solid var(--border-color);
 }
@@ -32,6 +32,7 @@
     text-decoration: none;
     font-family: var(--font-sans);
     font-weight: 500;
+    font-size: 0.95rem;
     transition: var(--transition);
 }
 
@@ -48,23 +49,74 @@
     align-items: center;   
 }
 
-/* --- INTRO SECTION --- */
+/* --- INTRO SECTION & TYPOGRAPHY --- */
 .artikel-intro {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
 }
 
 .artikel-intro h2 {
     font-family: var(--font-sans);
     font-size: 2.5rem;
+    line-height: 1.25; /* Ditambahkan: Agar judul multi-baris tidak saling menempel */
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .artikel-intro p {
     font-family: var(--font-sans);
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin: 0;
+}
+.article-layout {
+    max-width: 940px; /* Dinaikkan sedikit sesuai permintaan agar layout sedikit lebih luas */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- HERO IMAGE / THUMBNAIL --- */
+.article-hero-image {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Tetap mengunci rasio 16:9 sesuai keinginanmu */
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.article-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Otomatis memotong (crop) gambar di tengah agar pas di rasio 16:9 */
+    object-position: center;
+    display: block;
+}
+
+/* --- ARTIKEL KONTEN (PENTING UNTUK KETERBACAAN) --- */
+.article-body {
+    font-family: var(--font-sans);
+    font-size: 1.125rem; /* Ditambahkan: Ukuran font ideal standar artikel (18px) agar mata tidak lelah */
+    line-height: 1.75; /* Ditambahkan: Jarak antar baris kalimat agar teks tidak terlalu padat */
+    color: var(--text-primary);
+}
+
+.article-body p {
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* Ditambahkan: Jarak renggang yang konsisten antar paragraf */
+}
+
+.article-body p.lead {
+    font-size: 1.25rem; /* Ditambahkan: Membuat paragraf pembuka (lead) sedikit lebih besar */
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* STYLING ELEMEN TEKNIS DI DALAM TEKS */
+.article-body code {
+    font-family: monospace;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.95rem; /* Ditambahkan: Menyeimbangkan ukuran tag <code> di dalam paragraf */
 }
 
 /* --- FOOTER --- */
