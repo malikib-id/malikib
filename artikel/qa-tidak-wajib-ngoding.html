@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mengapa Skill Coding Saja Tidak Cukup untuk Menjadi Seorang QA Automation | Malikib</title>
+	<link rel="icon" type="image/png" href="../M-icon.png">
+	<link rel="stylesheet" href="https://cloudflare.com">
+	<link rel="stylesheet" href="../css/style-global.css">
+	<link rel="stylesheet" href="../css/artikel.css">
+    </head>
+    <body class="article-page" id="top">
+
+	<header>
+            <div class="container nav-container">
+		<a href="index.html" class="btn-back">&larr; Kembali ke Daftar Artikel</a>
+		<a href="../#artikel" class="logo">Maliki<span>b</span></a>
+            </div>
+	</header>
+
+	<main class="container article-layout">
+            
+            <div class="breadcrumb">
+		<a href="index.html">Home</a> &gt; 
+		<a href="index.html#artikel">Artikel</a> &gt; 
+		<span class="tag-automation">Opini</span>
+            </div>
+
+            <article class="main-content">
+		<h1 class="article-title">
+                    Mengapa Skill Coding Saja Tidak Cukup untuk Menjadi Seorang QA Automation ?
+		</h1>
+		
+		<p class="article-meta">
+                    Diterbitkan pada: 7 Juli 2026 &bull; 4 Menit Baca
+		</p>
+
+		<div class="article-hero-image">
+                    <img src="gambar/qa-bingung.png" alt="QA Automation dan Alur Bisnis Ilustrasi" style="width: 100%; height: auto; display: block;">
+		</div>
+
+		<div class="article-body">
+		    <p class="lead">
+			Ada cerita tentang seorang anak muda yang awal mulanya tertarik pada dunia Quality Assurance (QA) bukan karena idealisme ingin menyelamatkan produk dari <em>bug</em>. Alasannya sangat sederhana dan pragmatis: kebutuhan untuk mencari kerja, bosan melihat pengujian manual yang itu-itu saja, dan adanya keinginan kuat untuk ikut mengoding karena menyukai dunia teknologi.
+		    </p>
+		    
+		    <p>Dari sanalah ambisi itu dimulai. Dengan bermodalkan device seadanya seperti hp android yang di install termux, proses belajar dilakukan secara otodidak. Ada kepuasan tersendiri ketika berhasil menaklukkan hal-hal teknis yang awalnya terlihat rumit—mulai dari menguasai framework modern seperti <em>Pytest Playwright</em> atau <em>Playwright dengan TypeScript</em>, hingga sukses membangun pipeline CI/CD di GitHub Actions agar robot testing bisa berjalan otomatis dan mengirim notifikasi ke Telegram.</p>
+
+		    <p>Pada titik itu, sempat muncul perasaan jemawa. Ada asumsi keliru di dalam kepala bahwa jika seseorang sudah mahir menulis skrip otomatisasi dari nol dan membuat status pengujian menjadi "hijau" di <em>reporting tool</em>, maka tugasnya sebagai QA sudah selesai dan otomatis naik kelas. Sebuah pemikiran khas pemula yang merasa sudah menaklukkan dunia hanya karena robotnya bisa berjalan sesuai perintah.</p>
+
+		    <p>Namun, tamparan realitas itu datang ketika ia mencoba membangun automation framework untuk sebuah proyek nyata, yaitu sebuah <em>Enterprise POS (Point of Sale) SaaS</em>. Jujur saja, proyek SaaS tersebut sebenarnya tidaklah besar, melainkan proyek buatan seorang <em>solo fullstack developer</em>. Di sinilah benturan realitas itu terjadi, memicu kebingungan besar di tengah masa belajarnya.</p>
+
+		    <p>Robot testing yang dibuat dengan kode-kode canggih mendadak terasa membingungkan, bukan karena kodenya eror, melainkan karena ia mulai dihadapkan pada kenyataan alur bisnis (<strong>business flow</strong>) dari aplikasi tersebut. Sangat mudah memerintahkan robot untuk mengklik tombol kasir. Namun, apa gunanya jika kita tidak paham mengapa alur stok opname harus memotong inventaris dengan metode tertentu? Apa gunanya skrip yang berjalan lancar jika kita melewatkan logika anomali pembukuan akuntansi di belakang sistem? Logika industri seperti ini tidak memiliki dokumentasi sintaks di internet dan tidak bisa ditebak hanya dengan melamun di depan monitor rumah.</p>
+
+		    <p>Hal yang sama juga meruntuhkan keangkuhan saat melakukan pengujian API (<em>API Testing</em>). Awalnya, ada pemikiran bahwa jika respons API sudah mengembalikan <strong>Status Code 200 OK</strong> dan lolos validasi skema JSON, maka pengujian sudah selesai. Padahal, status 200 hanyalah konfirmasi bahwa gerbangnya terbuka, bukan jaminan bahwa datanya benar.</p>
+
+		    <p>Ketika menguji metode <code>PUT</code> atau <code>PATCH</code> untuk pembaruan data bisnis, realitasnya jauh lebih rumit. Satu skenario pengujian yang solid bisa membutuhkan hingga lebih dari 4 request berantai: melakukan <code>GET</code> awal untuk mencatat data lama, mengeksekusi <code>PUT</code>, melakukan <code>GET</code> kembali untuk memastikan data benar-benar berubah di database, hingga memvalidasi dampaknya ke modul lain. Tanpa pemahaman alur bisnis yang matang, pengujian API hanya akan menjadi aktivitas ketik skrip yang dangkal dan rapuh.</p>
+
+		    <p>Dari pengalaman berharga dan fase kebingungan inilah, anak muda itu akhirnya belajar sebuah pelajaran penting: <strong>pemahaman alur bisnis adalah hal yang sepenuhnya berbeda dari membangun skrip yang canggih sekalipun.</strong> Keinginan untuk lepas dari kejenuhan QA manual dan belajar ngoding automation adalah langkah yang bagus, namun menguasai <em>tool automation</em> tercanggih tanpa dibarengi kepekaan terhadap produk hanya akan melahirkan robot pengetik skrip yang kaku.</p>
+
+		    <p>Pada akhir cerita, artikel ini adalah refleksi sekaligus pengingat nyata bagi diri saya sendiri. Kemampuan teknis bisa kita kejar secara mandiri di kamar. Namun, kedewasaan memahami bagaimana sebuah bisnis di dunia nyata bekerja hanya bisa matang ketika kita berani keluar, terjun langsung ke lapangan, dan membenturkan diri dengan ekosistem industri yang sesungguhnya.</p>
+		</div>
+
+		
+	</main>
+
+	<footer class="artikel-footer">
+            <p>Powered by <a href="../portofolio/" class="logo" id="logo-footer">Maliki<span>b</span></a></p>
+	</footer>
+
+	<!-- TOMBOL BACK TO TOP -->
+	<a href="#top" class="btn-traktir-kopi" title="Kembali ke atas">
+            <i class="fa-solid fa-arrow-up"></i>
+	</a>
+
+    </body>
+</html>
